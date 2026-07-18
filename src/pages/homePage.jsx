@@ -6,6 +6,7 @@ import {NotesIcon} from "../components/notes";
 import {useState,useEffect} from "react";
 import {Category} from "../components/category";
 import {DashboardContent} from "../components/dashboardContent"
+import { HashLink } from "react-router-hash-link";
 
 
 const useMediaQuery = (query)=>{
@@ -30,9 +31,6 @@ export function HomePage(){
             <Route element={<HomeLayout />}>
       <Route path="/devFlow" element={<DevFlow />} />
     </Route>
-            <Route path = "/devFlow/features" element = {<Features/>}></Route>
-            <Route path = "/devFlow/howItWorks" element = {<HowItWorks/>}></Route>
-            <Route path = "/devFlow/about" element = {<About/>}></Route>
             <Route path="devFlow/dashboard" element={<Dashboard />}>
   <Route index element={<DashboardHome />} />
   <Route path="add-task" element={<AddTask />} />
@@ -47,12 +45,12 @@ export function HomePage(){
     </div>
 }
 function HomeLayout(){
-    return <div className = "bg-[#f0fffc] h-screen">
+    return <div className = "bg-[#f0fffc] ">
         <div className = "grid grid-cols-8 gap-8 bg-green-200">
         <Link to = "/devFlow" className = "text-xl font-bold col-span-3 py-2 mx-3">DevFlow</Link>
-        <Link to = "/devFlow/features" className = "text-lg font:medium col-span-1 py-2">Features</Link>
-        <Link to = "/devFlow/howItWorks" className = "text-lg font:medium col-span-1 py-2">How it works</Link>
-        <Link to = "/devFlow/about" className = "text-lg font:medium col-span-1 py-2">About</Link>
+<HashLink className = "text-lg font:medium col-span-1 py-2" smooth to="/devFlow#features">Features</HashLink>
+<HashLink className = "text-lg font:medium col-span-1 py-2"  smooth to="/devFlow#how-it-works">How it works</HashLink>
+<HashLink className = "text-lg font:medium col-span-1 py-2"  smooth to="/devFlow#about">About</HashLink>
         <Link to = "/devFlow/dashboard" className = "text-lg font:medium col-span-1 py-2">Dashboard</Link>
         <button className = "text-white col-span-1 text-xl font-bold hover:bg-green-600  bg-green-500 rounded-lg px-2 py-2 justify-self-end mx-3">Get Started</button>
         </div>
@@ -61,7 +59,7 @@ function HomeLayout(){
 }
 
 function DevFlow(){
-    return <div className = "max-w-7xl mx-auto px-8 bg-[#f0fffc] h-screen">
+    return <div className = "max-w-7xl mx-auto px-8 bg-[#f0fffc] ">
         <div className = "max-w-xl">
             <h1 className = "text-6xl font-bold mt-20  mb-4">Organise your work.</h1>
         <br/>
@@ -77,7 +75,10 @@ function DevFlow(){
     </a>
 </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+    id="features"
+    className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 scroll-mt-24"
+>
             <div className="w-72 h-64 p-6 rounded-xl bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300">
                 <TaskIcon />
                 <p className = "font-bold text-2xl m-2">Tasks</p>
@@ -99,6 +100,94 @@ function DevFlow(){
                 <p className = "text-lg text-gray-500 font-medium mt-3 max-w-[180px]">All your productivity in one place.</p>
             </div>
         </div>
+        <div
+  id="how-it-works"
+  className="py-28 scroll-mt-24"
+>
+  <div className="text-center">
+    <h1 className="text-5xl font-bold">How It Works</h1>
+    <p className="text-lg text-gray-500 mt-4">
+      Get started with DevFlow in three simple steps.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-10 mt-16">
+
+    <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl hover:-translate-y-2 transition duration-300">
+      <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-xl">
+        1
+      </div>
+
+      <h2 className="text-2xl font-bold mt-6">
+        Create an Account
+      </h2>
+
+      <p className="text-gray-500 mt-4">
+        Sign up securely using your email and start organizing your work in minutes.
+      </p>
+    </div>
+
+    <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl hover:-translate-y-2 transition duration-300">
+      <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-xl">
+        2
+      </div>
+
+      <h2 className="text-2xl font-bold mt-6">
+        Add Tasks & Notes
+      </h2>
+
+      <p className="text-gray-500 mt-4">
+        Create tasks, save notes and set goals to keep everything organized.
+      </p>
+    </div>
+
+    <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl hover:-translate-y-2 transition duration-300">
+      <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-xl">
+        3
+      </div>
+
+      <h2 className="text-2xl font-bold mt-6">
+        Track Progress
+      </h2>
+
+      <p className="text-gray-500 mt-4">
+        Complete tasks, achieve goals and monitor your productivity from one dashboard.
+      </p>
+    </div>
+
+  </div>
+</div>
+<div
+  id="about"
+  className="py-28 scroll-mt-24"
+>
+  <div className="bg-white rounded-3xl shadow-lg p-12 flex flex-col md:flex-row items-center justify-between gap-12">
+
+    <div className="md:w-2/3">
+      <h1 className="text-5xl font-bold">
+        About DevFlow
+      </h1>
+
+      <p className="text-lg text-gray-500 mt-8 leading-8">
+        DevFlow is a modern productivity platform designed to help students,
+        developers and professionals stay organized. Instead of switching
+        between multiple apps, manage your tasks, notes, goals and daily
+        progress from one clean dashboard.
+      </p>
+
+      <button className="mt-10 bg-green-500 hover:bg-green-600 text-white font-semibold text-lg px-8 py-4 rounded-lg transition">
+        Get Started
+      </button>
+    </div>
+
+    <div className="flex justify-center items-center">
+      <div className="w-52 h-52 rounded-full bg-green-200 flex items-center justify-center">
+        <span className="text-8xl">🚀</span>
+      </div>
+    </div>
+
+  </div>
+</div>
     </div>
 }
 function Dashboard(){
@@ -217,7 +306,7 @@ function CategoryBars(){
 }
 
 function Features(){
-    return <div>qwerty</div>
+    return 
 }
 function HowItWorks(){
     return <div>wertyu</div>
