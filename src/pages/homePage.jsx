@@ -305,15 +305,6 @@ function CategoryBars(){
     </div>
 }
 
-function Features(){
-    return 
-}
-function HowItWorks(){
-    return <div>wertyu</div>
-}
-function About(){
-    return <div>qwqwerrty</div>
-}
 function DashboardHome() {
   return <MainContent />;
 }
@@ -419,23 +410,30 @@ function Goals() {
 }
 
 function Profile() {
-  return <div>
-    <p className ="font-semibold text-4xl ml-64 mt-4 mb-4" >Profile</p>
-    <div className = "flex flex-col justify-center items-center gap-8 mb-4">
-        <div className="w-[700px] h-[550px]  bg-green-200 rounded-xl shadow-lg p-6">
-            <div className = "flex justify-between items-center p-12">
-                <h1 className ="text-2xl font-medium" >Username</h1>
-                <h1 className = "text-xl font-medium text-gray-500">asdfghjkl</h1>
-            </div>
-            <div className = "flex justify-between items-center p-12 ">
-                <h1 className ="text-2xl font-medium" >Email</h1>
-                <h1 className = "text-xl font-medium text-gray-500">asdfghjkl</h1>
-            </div>
-            <div className = "flex justify-between items-center p-12 ">
-                <h1 className ="text-2xl font-medium" >Bio</h1>
-                <h1 className = "text-xl font-medium text-gray-500">asdfghjkl</h1>
-            </div>
+  return (
+    <div className="flex justify-center mt-8">
+      <div className="w-[700px]">
+        <h1 className="text-4xl font-semibold mb-6">
+          Profile
+        </h1>
+
+        <div className="bg-green-200 rounded-xl shadow-lg p-6">
+          <div className="flex justify-between items-center p-12">
+            <h1 className="text-2xl font-medium">Username</h1>
+            <h1 className="text-xl text-gray-500">asdfghjkl</h1>
+          </div>
+
+          <div className="flex justify-between items-center p-12">
+            <h1 className="text-2xl font-medium">Email</h1>
+            <h1 className="text-xl text-gray-500">asdfghjkl</h1>
+          </div>
+
+          <div className="flex justify-between items-center p-12">
+            <h1 className="text-2xl font-medium">Bio</h1>
+            <h1 className="text-xl text-gray-500">asdfghjkl</h1>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
+  );
 }
